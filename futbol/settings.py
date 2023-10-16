@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # My apps
     "users",
+    'matches',
     # Django allauth
     "allauth",
     "allauth.account",

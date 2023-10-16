@@ -44,4 +44,6 @@ urlpatterns = [
     ),
     # Users
     path("api/", include("users.urls")),
+    #Matches
+    path("api/", include("matches.urls")),
 ]

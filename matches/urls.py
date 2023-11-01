@@ -5,7 +5,7 @@ urlpatterns = [
     path(
         "tentative-matches/",
         views.TentativeMatchListCreate.as_view(),
-        name="tentative-match-list-create",
+        name="tentative-match-list",
     ),
     path(
         "tentative-matches/<int:pk>/",

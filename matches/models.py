@@ -11,3 +11,6 @@ class PlayerRegistration(models.Model):
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
     tentative_match = models.ForeignKey(TentativeMatch, on_delete=models.CASCADE)
     registration_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["registration_date"]

@@ -1,4 +1,5 @@
-from django.core.management.base import BaseCommand, CommandParser
+from django.core.management.base import BaseCommand
+from django.core.management import call_command
 from django.contrib.auth import get_user_model
 import subprocess
 
@@ -56,9 +57,25 @@ class Command(BaseCommand):
                 ]
             )
 
-            # Run database migrations
-            subprocess.run(["python3", "manage.py", "makemigrations"])
-            subprocess.run(["python3", "manage.py", "migrate"])
+            # Drop the existing migrations
+            subprocess.run(
+                [
+                    "find",
+                    ".",
+                    "-path",
+                    "*/migrations/*.py",
+                    "-not",
+                    "-name",
+                    "__init__.py",
+                    "-delete",
+                ]
+            )
+
+            # Create new migrations
+            call_command("makemigrations")
+
+            # Apply the new migrations
+            call_command("migrate")
 
             # Create a new superuser
             subprocess.run(

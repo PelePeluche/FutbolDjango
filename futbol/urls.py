@@ -44,6 +44,8 @@ urlpatterns = [
     ),
     # Users
     path("api/", include("users.urls")),
-    #Matches
+    # Matches
     path("api/", include("matches.urls")),
+    # Myauth
+    path("api/", include("myauth.urls")),
 ]

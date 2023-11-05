@@ -3,7 +3,7 @@ from .models import Player
 from .serializers import PlayerSerializer
 
 
-class PlayerList(generics.ListCreateAPIView):
+class PlayerList(generics.ListAPIView):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
 
